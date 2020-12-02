@@ -1,0 +1,18 @@
+{
+  "cSpell.words": ["wieik"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": true,
+    "polyfills.ts": true,
+    ".browserslistrc": true,
+    ".editorconfig": true,
+    "karma.conf.js": true,
+    "package-lock.json": true,
+    "tsconfig.app.json": true,
+    "tsconfig.spec.json": true
+  }
+}
