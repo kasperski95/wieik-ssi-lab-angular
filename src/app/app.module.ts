@@ -5,10 +5,17 @@ import { AppComponent } from './app.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageComponent } from './components/manage/manage.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutes } from './app.routes';
 
 @NgModule({
-  declarations: [AppComponent, SummaryComponent, DashboardComponent, ManageComponent],
-  imports: [BrowserModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    SummaryComponent,
+    DashboardComponent,
+    ManageComponent,
+  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutes],
   providers: [],
   bootstrap: [AppComponent],
 })
