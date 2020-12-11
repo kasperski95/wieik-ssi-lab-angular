@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MetricComponent } from './components/metric/metric.component';
-import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
-import { NodesComponent } from './components/nodes/nodes.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { NodesRowComponent } from './components/nodes-row/nodes-row.component';
+import { NodesComponent } from './components/nodes/nodes.component';
 
 @NgModule({
   declarations: [
@@ -22,5 +22,6 @@ import { NodesRowComponent } from './components/nodes-row/nodes-row.component';
   imports: [BrowserModule, HttpClientModule, FormsModule, NgbProgressbarModule],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

@@ -1,8 +1,5 @@
 {
-  "cSpell.words": [
-    "Progressbar",
-    "wieik"
-  ],
+  "cSpell.words": ["Progressbar", "wieik"],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -17,5 +14,10 @@
     "package-lock.json": true,
     "tsconfig.app.json": true,
     "tsconfig.spec.json": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   }
 }

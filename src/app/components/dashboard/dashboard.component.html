@@ -8,16 +8,18 @@
         class="col-sm-6"
         [used]="cpu.used"
         [available]="cpu.available"
-        [title]="'CPU'"
-        [description]="'wykorzystanie rdzeni CPU'"
-      ></app-metric>
+      >
+        <metric-title>CPU</metric-title>
+        <metric-description>wykorzystanie rdzeni CPU</metric-description>
+      </app-metric>
       <app-metric
         class="col-sm-6"
         [used]="mem.used"
         [available]="mem.available"
-        [title]="'Pamięć'"
-        [description]="'wykorzystanie pamięci w GB'"
-      ></app-metric>
+      >
+        <metric-title>Pamięć</metric-title>
+        <metric-description>wykorzystanie pamięci w GB</metric-description>
+      </app-metric>
     </div>
   </div>
 </div>
