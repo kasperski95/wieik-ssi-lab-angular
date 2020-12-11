@@ -1,5 +1,8 @@
 {
-  "cSpell.words": ["wieik"],
+  "cSpell.words": [
+    "Progressbar",
+    "wieik"
+  ],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
