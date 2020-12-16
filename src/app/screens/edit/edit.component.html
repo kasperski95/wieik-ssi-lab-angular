@@ -1,1 +1,32 @@
-<p>edit works!</p>
+<app-template>
+  <div *ngIf="student">
+    <div>Edycja studenta o nr indeksu {{ student.nrIndeksu }}</div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <div>
+      <label for="imie">Imię</label>
+      <input id="imie" type="text" formControlName="imie" />
+    </div>
+    <div>
+      <label for="nazwisko">Nazwisko</label>
+      <input id="nazwisko" type="text" formControlName="nazwisko" />
+    </div>
+    Oceny:
+    <div *ngFor="let ocena of student.oceny">
+      <label for="{{ camelCase(ocena.przedmiot) }}">{{
+        ocena.przedmiot
+      }}</label>
+      <input
+        id="{{ camelCase(ocena.przedmiot) }}"
+        type="number"
+        formControlName="{{ camelCase(ocena.przedmiot) }}"
+        min="2"
+        max="5"
+        step="0.5"
+      />
+    </div>
+
+    <button class="button" type="submit">Zapisz</button>
+  </form>
+</app-template>

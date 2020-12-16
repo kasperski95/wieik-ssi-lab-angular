@@ -17,4 +17,19 @@ export class StudentsRepositoryService {
   findAll(): Student[] {
     return STUDENCI;
   }
+
+  save(student: Student): Student {
+    return this.update(student);
+  }
+
+  private update(student: Student): Student {
+    const index = STUDENCI.findIndex((s) => s.nrIndeksu === student.nrIndeksu);
+    if (index < 0) {
+      throw new Error('Not found');
+    }
+    STUDENCI.splice(index, 1);
+    STUDENCI.push(student);
+
+    return student;
+  }
 }
