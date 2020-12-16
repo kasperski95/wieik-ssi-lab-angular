@@ -4,7 +4,11 @@
       <th>Imię i nazwisko</th>
       <th>Nr indeksu</th>
     </tr>
-    <tr *ngFor="let student of students" (click)="setActiveStudent(student)">
+    <tr
+      *ngFor="let student of students"
+      (click)="setActiveStudent(student)"
+      [style.color]="student === activeStudent ? 'red' : 'inherit'"
+    >
       <td>{{ student.imie + " " + student.nazwisko }}</td>
       <td>{{ student.nrIndeksu }}</td>
     </tr>
@@ -46,5 +50,11 @@
         <td>{{ grade.wartosc || "brak oceny" }}</td>
       </tr>
     </tbody>
+    <button
+      [routerLink]="'/edit'"
+      [queryParams]="{ s: activeStudent.nrIndeksu }"
+    >
+      Edytuj
+    </button>
   </table>
 </div>

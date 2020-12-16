@@ -8,6 +8,12 @@ import { STUDENCI } from './studenci-db';
 export class StudentsRepositoryService {
   constructor() {}
 
+  findOne(id: number): Student | undefined {
+    const result = STUDENCI.find(({ nrIndeksu }) => nrIndeksu === id);
+    if (!result) throw new Error('Not found');
+    return result;
+  }
+
   findAll(): Student[] {
     return STUDENCI;
   }
