@@ -1,1 +1,52 @@
-<p>manage works!</p>
+<app-template>
+  <div>
+    <div>
+      <app-student-list [detailsEnabled]="false"></app-student-list>
+      <form
+        [formGroup]="studentForm"
+        (ngSubmit)="onSubmitStudent(studentForm.value)"
+      >
+        <div>
+          <label for="imie">Imię</label>
+          <input id="imie" type="text" formControlName="imie" />
+        </div>
+        <div>
+          <label for="nazwisko">Nazwisko</label>
+          <input id="nazwisko" type="text" formControlName="nazwisko" />
+        </div>
+        <div>
+          <label for="nrIndeksu">Nr Indeksu</label>
+          <input id="nrIndeksu" type="text" formControlName="nrIndeksu" />
+        </div>
+
+        <button class="button" type="submit">Zapisz</button>
+      </form>
+    </div>
+    <div>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th colspan="2">Lista przedmiotów</th>
+            </tr>
+            <tr *ngFor="let subject of subjects; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ subject }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <form
+        [formGroup]="subjectForm"
+        (ngSubmit)="onSubmitSubject(subjectForm.value)"
+      >
+        <div>
+          <label for="przedmiot">Przedmiot</label>
+          <input id="przedmiot" type="text" formControlName="przedmiot" />
+        </div>
+
+        <button class="button" type="submit">Zapisz</button>
+      </form>
+    </div>
+  </div>
+</app-template>

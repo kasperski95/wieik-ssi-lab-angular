@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/student';
 import { StudentsRepositoryService } from 'src/app/services/students-repository.service';
 
@@ -8,6 +8,8 @@ import { StudentsRepositoryService } from 'src/app/services/students-repository.
   styleUrls: ['./student-list.component.css'],
 })
 export class StudentListComponent implements OnInit {
+  @Input() detailsEnabled: boolean;
+
   students: Student[];
   averageGrade: number;
   activeStudent?: Student;
@@ -17,6 +19,8 @@ export class StudentListComponent implements OnInit {
   }
 
   setActiveStudent(student: Student) {
+    if (!this.detailsEnabled) return;
+
     if (student === this.activeStudent) {
       this.activeStudent = undefined;
     } else {

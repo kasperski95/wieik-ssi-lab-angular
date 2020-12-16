@@ -14,6 +14,10 @@ export class StudentsRepositoryService {
     return result;
   }
 
+  exists(id: number): boolean {
+    return !!STUDENCI.find((s) => s.nrIndeksu === id);
+  }
+
   findAll(): Student[] {
     return STUDENCI;
   }
@@ -23,11 +27,17 @@ export class StudentsRepositoryService {
   }
 
   private update(student: Student): Student {
+    if (student.imie === undefined || student.imie === '') throw new Error();
+    if (student.nazwisko === undefined || student.nazwisko === '')
+      throw new Error();
+    if (student.nrIndeksu === undefined || student.nrIndeksu < 1)
+      throw new Error();
+
     const index = STUDENCI.findIndex((s) => s.nrIndeksu === student.nrIndeksu);
-    if (index < 0) {
-      throw new Error('Not found');
+
+    if (index > 0) {
+      STUDENCI.splice(index, 1);
     }
-    STUDENCI.splice(index, 1);
     STUDENCI.push(student);
 
     return student;
