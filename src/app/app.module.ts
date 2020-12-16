@@ -10,9 +10,10 @@ import { HomeComponent } from './screens/home/home.component';
 import { ManageComponent } from './screens/manage/manage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TemplateComponent } from './components/template/template.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
 
 @NgModule({
-  declarations: [AppComponent, ManageComponent, EditComponent, HomeComponent, NavbarComponent, TemplateComponent],
+  declarations: [AppComponent, ManageComponent, EditComponent, HomeComponent, NavbarComponent, TemplateComponent, StudentListComponent],
   imports: [
     AppRoutes,
     BrowserModule,

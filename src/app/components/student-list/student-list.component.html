@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Imię i nazwisko</th>
+      <th>Nr indeksu</th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{ student.imie + " " + student.nazwisko }}</td>
+      <td>{{ student.nrIndeksu }}</td>
+    </tr>
+  </tbody>
+</table>
