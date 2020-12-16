@@ -8,9 +8,11 @@ import { AppRoutes } from './app.routes';
 import { EditComponent } from './screens/edit/edit.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ManageComponent } from './screens/manage/manage.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { TemplateComponent } from './components/template/template.component';
 
 @NgModule({
-  declarations: [AppComponent, ManageComponent, EditComponent, HomeComponent],
+  declarations: [AppComponent, ManageComponent, EditComponent, HomeComponent, NavbarComponent, TemplateComponent],
   imports: [
     AppRoutes,
     BrowserModule,
