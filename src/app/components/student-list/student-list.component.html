@@ -4,9 +4,47 @@
       <th>Imię i nazwisko</th>
       <th>Nr indeksu</th>
     </tr>
-    <tr *ngFor="let student of students">
+    <tr *ngFor="let student of students" (click)="setActiveStudent(student)">
       <td>{{ student.imie + " " + student.nazwisko }}</td>
       <td>{{ student.nrIndeksu }}</td>
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="activeStudent">
+  <table>
+    <tbody>
+      <tr>
+        <th colspan="2">Szczegóły dotyczące wybranego studenta</th>
+      </tr>
+      <tr>
+        <td>nr indeksu:</td>
+        <td>{{ activeStudent.nrIndeksu }}</td>
+      </tr>
+      <tr>
+        <td>imię:</td>
+        <td>{{ activeStudent.imie }}</td>
+      </tr>
+      <tr>
+        <td>nazwisko:</td>
+        <td>{{ activeStudent.nazwisko }}</td>
+      </tr>
+      <tr>
+        <td>średnia:</td>
+        <td>{{ averageGrade }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <th colspan="2">Oceny</th>
+      </tr>
+      <tr *ngFor="let grade of activeStudent.oceny">
+        <td>{{ grade.przedmiot }}</td>
+        <td>{{ grade.wartosc || "brak oceny" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
