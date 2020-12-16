@@ -9,7 +9,7 @@ import { StudentsRepositoryService } from 'src/app/services/students-repository.
   styleUrls: ['./manage.component.css'],
 })
 export class ManageComponent implements OnInit {
-  subjects: String[];
+  subjects: string[];
   studentForm: FormGroup;
   subjectForm: FormGroup;
 
@@ -50,6 +50,10 @@ export class ManageComponent implements OnInit {
       s.imie = formData.imie;
       s.nazwisko = formData.nazwisko;
       s.nrIndeksu = formData.nrIndeksu;
+      s.oceny = this.subjects.map((subject) => ({
+        przedmiot: subject,
+        wartosc: undefined as number,
+      }));
 
       this.studentRepository.save(s);
     } catch (err) {
@@ -57,5 +61,14 @@ export class ManageComponent implements OnInit {
     }
   }
 
-  onSubmitSubject(formData: any) {}
+  onSubmitSubject(formData: any) {
+    try {
+      this.studentRepository.addSubject(formData.przedmiot);
+      this.subjects = this.studentRepository
+        .findAll()[0]
+        .oceny.map(({ przedmiot }) => przedmiot);
+    } catch (err) {
+      alert(err?.message || 'Operacja nie powiodła się');
+    }
+  }
 }

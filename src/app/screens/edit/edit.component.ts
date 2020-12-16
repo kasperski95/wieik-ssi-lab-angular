@@ -45,15 +45,19 @@ export class EditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(formData: any) {
-    this.student.imie = formData.imie;
-    this.student.nazwisko = formData.nazwisko;
-    this.student.oceny = this.student.oceny.map((ocena) => {
-      const key = this.camelCase(ocena.przedmiot);
-      return { przedmiot: ocena.przedmiot, wartosc: formData[key] };
-    });
+    try {
+      this.student.imie = formData.imie;
+      this.student.nazwisko = formData.nazwisko;
+      this.student.oceny = this.student.oceny.map((ocena) => {
+        const key = this.camelCase(ocena.przedmiot);
+        return { przedmiot: ocena.przedmiot, wartosc: formData[key] };
+      });
 
-    this.studentRepository.save(this.student);
-    this.router.navigate(['/']);
+      this.studentRepository.save(this.student);
+      this.router.navigate(['/']);
+    } catch (err) {
+      alert(err?.message || 'Operacja nie powiodła się');
+    }
   }
 
   ngOnInit(): void {}
