@@ -2,7 +2,7 @@ import { Student } from '../models/student';
 
 export const STUDENCI: Student[] = [
   {
-    nrIndeksu: 127946,
+    nrIndeksu: 654321,
     imie: 'Arkadiusz',
     nazwisko: 'Kasprzyk',
     oceny: [
